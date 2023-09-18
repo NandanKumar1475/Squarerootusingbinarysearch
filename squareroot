@@ -1,0 +1,43 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int findsqrt(int num)
+{
+    int st = 0;
+    int end = num;
+   int target = num;
+
+   int mid  = st+(end -st)/2;
+   int ans = -1;
+
+   while(st<=end)
+   {
+    if(mid*mid ==target)
+    {
+        return mid;
+    }
+    else if(mid*mid<target)
+    {   
+        ans = mid;
+        st = mid +1;
+    }
+    else {
+        end  = mid - 1;
+    }
+    mid = st + (end - st)/2;
+   }
+   return ans;;
+
+   
+
+}
+
+int main()
+{
+    int num;
+    cout<<"enter the number to find the sqr root"<<endl;
+    cin>>num;
+
+    int res = findsqrt(num);
+    cout<<res;
+}
